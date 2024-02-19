@@ -2,7 +2,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
     {
-        id: 'asdafdf1',
+        id: 'abscdei2338u8u',
         name: 'Rohit Kirti',
         email: 'rohit.kirti@gmail.com'
     }
@@ -26,12 +26,20 @@ const usersSlice = createSlice({
                 }
             }
         },
+        updateUser: (state, action) => {
+            const { id, name, email } = action.payload
+            const updatedUser = state.find(user => user.id === id)
+            if (updatedUser) { 
+                updatedUser.name = name
+                updatedUser.email = email
+            }
+        },
         removeUser: (state, action) => {
            return state.filter(user => user.id != action.payload)
         }
     }
 })
 
-export const {createUser, removeUser} = usersSlice.actions
+export const {createUser, removeUser, updateUser} = usersSlice.actions
 
 export default usersSlice.reducer

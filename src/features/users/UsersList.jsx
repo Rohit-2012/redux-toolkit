@@ -45,9 +45,9 @@ const UsersList = () => {
         </td>
         <td className="px-6 py-4">{user.email}</td>
         <td className="px-6 py-4 flex items-center gap-4">
-          <button className="bg-blue-600 p-2 text-white rounded-md">
+          <Link to={`update/${user.id}`} className="bg-blue-600 p-2 text-white rounded-md">
             <FaEdit />
-          </button>
+          </Link>
           <button
             className="bg-red-600 p-2 text-white rounded-md"
             onClick={() => handleRemove(user.id)}
